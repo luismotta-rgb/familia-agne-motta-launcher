@@ -47,14 +47,26 @@
 <body>
   <img class="icon" src="icon-192.png" alt="">
   <h1>Família Agne Motta</h1>
-  <div class="spinner" aria-hidden="true"></div>
-  <p class="muted">Abrindo…</p>
-  <p class="muted"><a class="fallback" href="https://script.google.com/a/macros/hopeneuropsiquiatria.com.br/s/AKfycbzy4ED0R6vFpLZ0jeu_HuG7JqBf8TTH2hvgCNjRoLAvG67OImrN7cEyxii-_R4UJkCq/exec">Continuar manualmente</a></p>
+  <div class="spinner" aria-hidden="true" id="spinner" style="display:none"></div>
+  <p class="muted" id="status">Toque em compartilhar → "Adicionar à Tela de Início" pra instalar com o ícone certo.</p>
+  <p class="muted"><a class="fallback" id="continueLink" href="https://script.google.com/a/macros/hopeneuropsiquiatria.com.br/s/AKfycbzy4ED0R6vFpLZ0jeu_HuG7JqBf8TTH2hvgCNjRoLAvG67OImrN7cEyxii-_R4UJkCq/exec">Abrir o app agora</a></p>
 
   <script>
     // Ponto único: se a URL do app oficial mudar (novo deployment), só trocar aqui.
     var APP_URL = 'https://script.google.com/a/macros/hopeneuropsiquiatria.com.br/s/AKfycbzy4ED0R6vFpLZ0jeu_HuG7JqBf8TTH2hvgCNjRoLAvG67OImrN7cEyxii-_R4UJkCq/exec';
-    location.replace(APP_URL);
+
+    // Só redireciona sozinho quando já está instalado na tela de início (modo "standalone").
+    // Numa visita normal pelo Safari (antes de instalar) NÃO redireciona — senão o usuário
+    // nunca consegue tocar em "Adicionar à Tela de Início" a tempo, porque a página já teria
+    // trocado para a URL do Google (que não mantém o ícone customizado).
+    var isStandalone = window.navigator.standalone === true ||
+      (window.matchMedia && window.matchMedia('(display-mode: standalone)').matches);
+
+    if (isStandalone) {
+      document.getElementById('status').textContent = 'Abrindo…';
+      document.getElementById('spinner').style.display = '';
+      location.replace(APP_URL);
+    }
   </script>
 </body>
 </html>
