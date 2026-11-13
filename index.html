@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Família Agne Motta</title>
+
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Família Agne">
+<meta name="theme-color" content="#176047">
+
+<!-- Adianta a conexão (DNS + TLS) com o app e com o login do Google, pra perder menos tempo
+     depois que o redirecionamento abaixo acontecer. -->
+<link rel="preconnect" href="https://script.google.com" crossorigin>
+<link rel="preconnect" href="https://accounts.google.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="dns-prefetch" href="https://script.google.com">
+<link rel="dns-prefetch" href="https://accounts.google.com">
+
+<style>
+  :root{color-scheme:light;--ink:#172b25;--muted:#4f625a;--bg:#f3f5ef;--green:#176047}
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;background:var(--bg);color:var(--ink);
+    font:15px/1.5 system-ui,-apple-system,sans-serif;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+    min-height:100%;padding:24px;text-align:center;
+  }
+  img.icon{width:84px;height:84px;border-radius:21px;box-shadow:0 6px 18px rgba(23,43,37,.18)}
+  h1{font-size:19px;letter-spacing:-.02em;margin:0;font-weight:700}
+  .spinner{
+    width:22px;height:22px;border-radius:50%;
+    border:3px solid #d7e1d8;border-top-color:var(--green);
+    animation:spin .8s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+  p.muted{color:var(--muted);font-size:13px;margin:0}
+  a.fallback{color:var(--green);font-size:13px}
+</style>
+</head>
+<body>
+  <img class="icon" src="icon-192.png" alt="">
+  <h1>Família Agne Motta</h1>
+  <div class="spinner" aria-hidden="true"></div>
+  <p class="muted">Abrindo…</p>
+  <p class="muted"><a class="fallback" href="https://script.google.com/a/macros/hopeneuropsiquiatria.com.br/s/AKfycbzy4ED0R6vFpLZ0jeu_HuG7JqBf8TTH2hvgCNjRoLAvG67OImrN7cEyxii-_R4UJkCq/exec">Continuar manualmente</a></p>
+
+  <script>
+    // Ponto único: se a URL do app oficial mudar (novo deployment), só trocar aqui.
+    var APP_URL = 'https://script.google.com/a/macros/hopeneuropsiquiatria.com.br/s/AKfycbzy4ED0R6vFpLZ0jeu_HuG7JqBf8TTH2hvgCNjRoLAvG67OImrN7cEyxii-_R4UJkCq/exec';
+    location.replace(APP_URL);
+  </script>
+</body>
+</html>
